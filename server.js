@@ -1,14 +1,16 @@
-const app = require('express')()
+const exp = require('express')
+const app = exp()
 
 app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
-    console.log("accessed")
-    res.render("index", {text: "World"})
+app.use((req, res, next) => {
+    res.locals.currentPath = req.path
+    next()
 })
 
-const regRouter = require("./routes/users")
+app.use('/', require("./routes/entry"))
+app.use(exp.static("public"))
 
-app.use('/', regRouter)
+
 
 app.listen(3000)

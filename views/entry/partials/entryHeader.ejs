@@ -1,0 +1,17 @@
+<header class="bg-white shadow-md p-4 px-25">
+    <nav class="flex justify-between">
+        <div class="flex justify-start">
+            <a href="/">Okaeri</a>
+        </div>
+        <div class="flex justify-end space-x-5">
+            <% if (currentPath !== "/register") { %>
+                <a href="/register">Register</a>
+            <% } %>
+            <% if (currentPath !== "/login") { %>
+                <a href="/login">Login</a>
+            <% } %>
+        </div>
+
+        
+    </nav>
+</header>
